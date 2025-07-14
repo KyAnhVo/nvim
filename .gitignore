@@ -1,0 +1,9 @@
+*
+
+# Allow lua files
+!*/
+!*.lua
+
+# Allow some git files
+!.gitignore
+!*.md
