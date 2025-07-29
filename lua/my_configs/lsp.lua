@@ -1,6 +1,6 @@
 local lspconfig = require("lspconfig")
 
--- pyright
+-- pyright (pyright)
 
 lspconfig.pyright.setup({
     before_init = function(_, config)
@@ -13,7 +13,7 @@ lspconfig.pyright.setup({
     end,
 })
 
--- gopls
+-- gopls (golang)
 
 lspconfig.gopls.setup({
   settings = {
@@ -26,3 +26,30 @@ lspconfig.gopls.setup({
     },
   },
 })
+
+-- clangd (c / cpp)
+
+lspconfig.clangd.setup({})
+
+-- HTML / CSS / JS / TS
+
+lspconfig.html.setup({})
+lspconfig.cssls.setup({})
+lspconfig.ts_ls.setup({})
+
+-- Lua
+
+require("lspconfig").lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },  -- prevent "undefined global 'vim'" warning
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
+      },
+    },
+  },
+}
+
