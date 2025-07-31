@@ -53,3 +53,18 @@ require("lspconfig").lua_ls.setup {
   },
 }
 
+-- Dart/Flutter
+
+require('lspconfig').dartls.setup({
+  cmd = { "dart", "language-server", "--protocol=lsp" },
+  filetypes = { "dart" },
+  init_options = {
+    closingLabels = true,
+    outline = true,
+    flutterOutline = true,
+  },
+  on_attach = function(client, bufnr)
+    -- your on_attach code (keymaps, etc.)
+  end,
+})
+
