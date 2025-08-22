@@ -16,3 +16,7 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set({"n", "i"}, "<A-l>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true})
 vim.keymap.set({"n", "i"}, "<A-h>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true})
 
+-- error handling
+
+vim.keymap.set("n", "<leader>ee", vim.diagnostic.open_float, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>dd", vim.lsp.buf.hover, { noremap = true, silent = true })

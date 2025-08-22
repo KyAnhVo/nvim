@@ -1,5 +1,18 @@
--- bootstrap lazy
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
@@ -29,8 +42,8 @@ require("lazy").setup({
                     lualine_x = {
                         {
                             function()
-                                local clients = vim.lsp.get_active_clients({ bufnr = 0 })
-                                if #cliens == 0 then return "No LSP" end
+                                local clients = vim.lsp.get_clients({ bufnr = 0 })
+                                if #clients == 0 then return "No LSP" end
                                 return table.concat(
                                     vim.tbl_map(function(c) return c.name end, clients),
                                     ", "
@@ -79,4 +92,5 @@ require("lazy").setup({
             require("bufferline").setup{}
         end
     },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 })

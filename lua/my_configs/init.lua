@@ -5,5 +5,6 @@ require("my_configs.completion")
 require("my_configs.terminal")
 require("my_configs.config")
 require("my_configs.mapping")
+require("my_configs.colorscheme")
 
 print("my_configs working")
