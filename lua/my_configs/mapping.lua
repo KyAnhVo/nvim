@@ -13,8 +13,8 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
 -- tab changer 
 
-vim.keymap.set({"n", "i"}, "<A-l>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true})
-vim.keymap.set({"n", "i"}, "<A-h>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true})
+vim.keymap.set("n", "<A-l>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true})
+vim.keymap.set("n", "<A-h>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true})
 
 -- error handling
 
