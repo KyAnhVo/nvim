@@ -26,3 +26,18 @@ vim.opt.swapfile = false
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+-- web langs: 2 tas
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { 
+    "html", "css", "scss", "javascript", "typescript", 
+    "javascriptreact", "typescriptreact", "json", 
+    "svelte", "vue", "astro" 
+  },
+  callback = function()
+    vim.opt_local.expandtab = true
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.shiftwidth = 2
+  end,
+})
