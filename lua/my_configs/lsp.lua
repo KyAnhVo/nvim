@@ -68,3 +68,16 @@ require('lspconfig').dartls.setup({
   end,
 })
 
+lspconfig.rust_analyzer.setup({
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true,
+      },
+      checkOnSave = true,
+      check = {
+        command = "clippy",
+      },
+    },
+  },
+})

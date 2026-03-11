@@ -92,5 +92,33 @@ require("lazy").setup({
             require("bufferline").setup{}
         end
     },
+    {
+        'rcarriga/nvim-notify',
+        config = function()
+            require('notify').setup({
+                timeout = 3000,
+            })
+        end
+    },
+    {
+      "folke/noice.nvim",
+      event = "VeryLazy",
+      opts = {
+        -- add any options here
+      },
+      dependencies = {
+        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+        "MunifTanjim/nui.nvim",
+        -- OPTIONAL:
+        --   `nvim-notify` is only needed, if you want to use the notification view.
+        --   If not available, we use `mini` as the fallback
+        "rcarriga/nvim-notify",
+        }
+    },
+    {
+        "Fildo7525/pretty_hover",
+        event = "LspAttach",
+        opts = {}
+    },
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 })

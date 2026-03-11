@@ -19,4 +19,4 @@ vim.keymap.set("n", "<A-h>", ":BufferLineCyclePrev<CR>", { noremap = true, silen
 -- error handling
 
 vim.keymap.set("n", "<leader>ee", vim.diagnostic.open_float, { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>dd", vim.lsp.buf.hover, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>dd", require("pretty_hover").hover, { noremap = true, silent = true })
